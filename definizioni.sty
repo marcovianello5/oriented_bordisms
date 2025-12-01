@@ -1,0 +1,275 @@
+% definizioni.sty
+
+% versione: sabato 11 ottobre 2025
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{preambolo}[2025/10/11 Le mie definizioni matematiche]
+
+% *****************************************************************************
+% Le definizioni iniziano qui
+% *****************************************************************************
+
+% Vale:
+% \operatorname = versione bella di \mathop
+% \DeclareMathOperator = wrapper per \operatorname
+% \mathbin è per un'operazione binaria come +, ÷, ecc.
+% \mathrel è per una relazione binaria, come aRb, ecc.
+% \DeclarePairedDelimiter (variante asterisco \left e \right)
+
+
+% Teoria degli insiemi
+\newcommand{\power}{\mathscr P}
+\DeclarePairedDelimiter{\card}{\lvert}{\rvert}
+% \DeclareMathOperator{\card}{card}
+
+
+% Ordini e reticoli
+\DeclarePairedDelimiter{\cl}{\langle}{\rangle}
+
+
+% Abstract nonsense
+\newcommand{\cat}[1]{\mathcal{#1}}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\Ar}{Ar}
+\DeclareMathOperator{\Mor}{Mor}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Sub}{Sub}
+
+\DeclareMathOperator{\Dom}{Dom}
+\DeclareMathOperator{\Cod}{Cod}
+
+\DeclarePairedDelimiter{\Fun}{[}{]}
+%\newcommand{\Fun}[2]{{#1}^{#2}}
+\DeclarePairedDelimiter{\intHom}{[}{]}
+
+\newcommand{\op}{\textup{op}}
+\newcommand{\nto}{\Rightarrow}
+
+\newcommand*\cocolon{%
+  \nobreak
+  \mskip6mu plus1mu
+  \mathpunct{}%
+  \nonscript
+  \mkern-\thinmuskip
+  {:}%
+  \mskip2mu
+  \relax
+}
+
+\newcommand{\ev}{\mathrm{ev}}
+
+\newcommand{\comma}[2]{({#1}\slash{#2})}
+\newcommand{\overcat}[2]{{#1}\slash_{#2}}
+\newcommand{\undercat}[2]{{#1}\slash^{#2}}
+
+
+% Nomi di categorie
+\newcommand{\textcat}[1]{\left\{\textnormal{#1}\right\}}
+\newcommand{\stdcat}[1]{\mathrm{#1}}
+\newcommand{\Cat}{\stdcat{Cat}}
+\newcommand{\CAT}{\stdcat{CAT}}
+\newcommand{\Fix}{\stdcat{Fix}}
+\newcommand{\Set}{\stdcat{Set}}
+\newcommand{\Top}{\stdcat{Top}}
+\newcommand{\Open}{\mathcal{O}}
+\newcommand{\PSh}{\stdcat{PSh}}
+\newcommand{\Bund}{\stdcat{Bund}}
+\newcommand{\Et}{\stdcat{\acute{E}t}}
+\newcommand{\Sh}{\stdcat{Sh}}
+\newcommand{\RS}{\stdcat{RS}}
+\newcommand{\LRS}{\stdcat{LRS}}
+\newcommand{\Mnfld}{\stdcat{Mnfld}}
+\newcommand{\Diff}{\stdcat{Diff}}
+\newcommand{\DiffBund}{\stdcat{DiffBund}}
+\newcommand{\DiffVB}{\stdcat{DiffVB}}
+\newcommand{\Grp}{\stdcat{Grp}}
+\newcommand{\Grpd}{\stdcat{Grpd}}
+\newcommand{\Ab}{\stdcat{Ab}}
+\newcommand{\Rng}{\stdcat{Rng}} % anell (= anelli non necessarimante unitari)
+\newcommand{\Ring}{\stdcat{Ring}} % anelli unitari
+\newcommand{\CRing}{\stdcat{CRing}}
+\newcommand{\Alg}{\stdcat{Alg}}
+\newcommand{\Field}{\stdcat{Field}}
+\newcommand{\Mod}{\stdcat{Mod}}
+\newcommand{\lMod}[1]{\prescript{}{#1}{\Mod}}
+\newcommand{\Modr}[1]{\Mod_{#1}}
+\newcommand{\lModr}[2]{\prescript{}{#1}{\Mod}_{#2}}
+\newcommand{\Vect}{\stdcat{Vect}}
+\newcommand{\Aff}{\stdcat{Aff}}
+\newcommand{\Proj}{\stdcat{Proj}}
+\newcommand{\Mat}{\stdcat{M}}
+\newcommand{\POSet}{\stdcat{POSet}}
+\newcommand{\HA}{\stdcat{HA}}
+\newcommand{\cHA}{\stdcat{cHA}}
+\newcommand{\Meas}{\stdcat{Meas}}
+\newcommand{\Norm}{\stdcat{Norm}}
+
+\newcommand{\htpy}{\mathrm{h}}
+
+
+% Logica
+\DeclarePairedDelimiter{\sem}{\llbracket}{\rrbracket}
+
+
+% AB
+\renewcommand{\Im}[1]{\operatorname{Im}{#1}} % "parte immaginaria" ridefinita sotto
+\DeclareMathOperator{\Ker}{Ker} % "ker grande" è la fibra dello zero
+\renewcommand{\ker}{\mathrel{\mathrm{ker}}} % "ker piccolo" è una relazione
+\DeclareMathOperator{\Coim}{Coim}
+\DeclareMathOperator{\Coker}{Coker}
+\DeclareMathOperator{\Gr}{\mathfrak{Gr}} % la grassmaniamna di uno spazio
+
+\DeclareMathOperator{\rk}{rk}
+
+\DeclareMathOperator{\Bilin}{Bilin}
+\newcommand{\extpow}{\bigwedge\nolimits}
+\DeclareMathOperator{\Sym}
+
+\DeclarePairedDelimiter{\scalar}{\langle}{\rangle}
+\DeclareMathOperator{\proj}{proj}
+
+\newcommand{\transp}[1]{\prescript{\textup{t}}{}{{#1}}}
+\newcommand{\pt}[1]{\left(\begin{smallmatrix}#1\end{smallmatrix}\right)}
+
+\newcommand{\pr}{\mathrm{pr}}
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+%\newcommand{\AA}{\mathbb A}
+\newcommand{\PP}{\mathbb P}
+
+\DeclareMathOperator{\projdim}{proj\,dim}
+\DeclareMathOperator{\projcodim}{proj\,codim}
+
+
+% Casi particolari tanto belli da meritare un nome
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\orth}{\mathrm{O}}
+\newcommand{\sorth}{\mathrm{SO}}
+\newcommand{\unitary}{\mathrm{U}}
+\newcommand{\sunitary}{\mathrm{SU}}
+\newcommand{\PGL}{\mathrm{PGL}}
+
+
+% Gruppi, anelli, ecc.
+\newcommand{\normal}{\mathrel{\trianglelefteq}} % da rivedere perché vorrei un `=' sotto il triangolino
+
+\DeclareMathOperator{\Stab}{Stab}
+
+\DeclareMathOperator{\sgn}{sgn}
+
+\newcommand{\divides}{\mid}
+\newcommand{\ndivides}{\nmid}
+
+% topologia
+\newcommand{\tcl}[1]{\overline{#1}}
+\newcommand{\tint}[1]{{\kern0pt#1}^{{\circ}}}
+\newcommand{\tbd}[1]{\partial{#1}}
+
+\newcommand{\nhbd}{\mathcal{N}}
+\newcommand{\onhbd}{\mathcal{U}}
+
+\DeclareMathOperator{\Omeo}{Omeo}
+
+\newcommand{\res}{\mathrm{res}}
+\DeclareMathOperator{\germe}{germe}
+
+\makeatletter
+\newcommand{\rel}[1]{\allowbreak \if@display \mkern 18mu \else \mkern 12mu\fi {\operator@font rel}\,\,#1}
+\makeatother
+
+% geodiff
+\newcommand{\tb}{\mathrm{T}}
+\newcommand{\Vett}{\mathscr{X}}
+\newcommand{\Der}{\mathrm{Der}}
+
+\let\Vec\relax % perché sta roba?
+\DeclareMathOperator{\Vec}{Vec}
+
+\newcommand{\Vol}{\mathrm{Vol}}
+
+
+% Analisi
+\let\ImPart\Im
+\let\RePart\Re
+\newcommand{\conj}[1]{\overline{#1}}
+
+\newcommand{\e}{\mathrm e}
+\newcommand{\imgry}{\mathrm i}
+
+\DeclarePairedDelimiter{\ooint}{]}{[}
+\DeclarePairedDelimiter{\coint}{[}{[}
+\DeclarePairedDelimiter{\ocint}{]}{]}
+\DeclarePairedDelimiter{\ccint}{[}{]}
+
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\fractional}{\{}{\}}
+
+\DeclareMathOperator{\Supp}{Supp}
+
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator*{\osclim}{osc\,lim}
+\DeclareMathOperator{\dist}{dist}
+
+\newcommand{\bdlinf}{\mathscr L}
+\newcommand{\bdf}{\mathscr B}
+\newcommand{\cntsf}{\mathscr C}
+\newcommand{\bdcntsf}{\mathscr{BC}}
+\newcommand{\lebf}{\mathrm{L}}
+
+\newcommand{\diff}{\mathrm{d}} % or \mathop{}\!\mathrm{d} since \mathop{} puts two thin spaces, and \! gets rid of one of those
+\newcommand{\intdiff}{\,\operatorname{d}\!} % or \mathop{}\!\mathrm{d} since \mathop{} puts two thin spaces, and \! gets rid of one of those
+
+\newcommand{\jacob}{\mathrm{J}}
+
+% Insiemi numerici (rich man)
+% \newcommand{\NN}{\mathbf N}
+% \newcommand{\ZZ}{\mathbf Z}
+% \newcommand{\QQ}{\mathbf Q}
+% \newcommand{\RR}{\mathbf R}
+% \newcommand{\extRR}{{\tcl\RR}} % reali estesi
+% \newcommand{\CC}{\mathbf C}
+% \newcommand{\extCC}{{\tcl\CC}} % complessi con punto all'infinito
+% \newcommand{\HH}{\mathbf H}
+
+% Insiemi numerici (poor man)
+\newcommand{\NN}{\mathbb N}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\extRR}{{\tcl\RR}} % reali estesi
+\newcommand{\CC}{\mathbb C}
+\newcommand{\extCC}{{\tcl\CC}} % complessi con punto all'infinito
+\newcommand{\HH}{\mathbb H}
+\newcommand{\OO}{\mathbb O}
+
+
+% Nuove definizioni
+
+\newcommand{\intprod}{\mathbin{\lrcorner}}
+
+\newcommand{\TT}{\mathbb T}
+
+\newcommand{\act}{\vartriangleright}
+\newcommand{\tca}{\vartriangleleft}
+
+\newcommand{\defskip}{\medskip}
+
+\newcommand{\fb}{\mathrm{Fr}}
+\newcommand{\tens}{\mathrm{T}}
+
+\newcommand{\Fl}{\mathrm{Fl}}
+
+\newcommand{\lie}[1]{\mathfrak{#1}}
+
+\newcommand{\fiber}{\mathbb F}
+
+\newcommand{\Match}{\mathrm{Match}}

@@ -1,0 +1,162 @@
+% preambolo.sty
+
+% versione preambolo: sabato 11 ottobre 2025
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{preambolo}[2025/10/11 Il mio preambolo]
+
+% *****************************************************************************
+% Il preambolo inizia qui
+% *****************************************************************************
+
+% Lingua locale
+\usepackage[OT2,T1]{fontenc}
+
+\newlanguage\fakelanguage
+\newcommand\cyr{\fontencoding{OT2}\fontfamily{wncyr}\selectfont
+  \language\fakelanguage}
+\DeclareTextFontCommand{\textcyr}{\cyr}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[french, english]{babel}
+%\newcommand{\en}[1]{{\itshape\foreignlanguage{english}{#1}}}
+\newcommand{\fr}[1]{{\itshape\foreignlanguage{french}{#1}}}
+\newcommand{\lat}[1]{{\itshape\foreignlanguage{latin}{#1}}}
+\newcommand{\gr}[1]{\foreignlanguage{greek}{#1}}
+
+
+% Geometria della pagina
+\usepackage[babel=true]{microtype}
+\usepackage[%
+,a4paper
+,asymmetric
+,top=1.15in
+,bottom=1.15in
+%,right=1.5in
+%left=2in
+]{geometry}
+
+
+% Tabelle e immagini
+\usepackage{graphicx} % Non so a che cosa serve
+\usepackage{caption}
+% \captionsetup{
+%   ,tableposition=top
+%   ,figureposition=bottom
+%   ,font=small
+% }
+\usepackage{booktabs} % Non so a che cosa serve
+\usepackage{subfig}
+
+
+% Bibliografia
+\usepackage[autostyle,
+italian=guillemets]{csquotes} % dalla guida di Pantieri
+\usepackage[style=alphabetic, backend=biber]{biblatex} % ([Ma 14]), biber
+% \addbibresource{../../../bibliografia/bibliografia.bib} % perché in unipd_2020_21
+\addbibresource{libri.bib}
+
+
+% Pkgs vari
+\usepackage{enumerate}
+\usepackage{epigraph}
+\usepackage{lipsum}
+% \usepackage[toc,page]{appendix}
+\usepackage{pdfpages} % per importare file pdf
+\usepackage{todonotes}
+\usepackage{multicol}
+\usepackage{soul} % testo barrato
+% \indentfirst? :c
+
+
+% Matematica
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs} % per \mathscr
+\usepackage{tensor}
+\usepackage{stmaryrd} % per \llbracket
+% \usepackage{physics}
+
+% Definizioni
+\usepackage{definizioni}
+
+% Teoremi
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\tcbuselibrary{skins}
+
+% Classico
+\swapnumbers
+\theoremstyle{plain}
+\newtheorem{prp}{Proposition}%[section]
+\newtheorem*{prp*}{Proposition}
+
+\newtheorem{lemma}[prp]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+
+\newtheorem{thm}[prp]{Theorem}
+\newtheorem*{thm*}{Theorem}
+
+\newtheorem{corollario}[prp]{Corollario}
+\newtheorem*{corollario*}{Corollario}
+
+\theoremstyle{definition}
+\newtheorem{dfn}[prp]{Definition}
+\newtheorem*{dfn*}{Definition}
+
+\theoremstyle{remark}
+\newtheorem{osservazione}[prp]{Osservazione}
+\newtheorem*{osservazione*}{Osservazione}
+
+\newtheorem{esempio}[prp]{Esempio}
+\newtheorem*{esempio*}{Esempio}
+
+\newtheorem{ex}[prp]{Exercise}
+\newtheorem*{ex*}{Exercise}
+
+\newtheorem{domanda}[prp]{Domanda}
+\newtheorem*{domanda*}{Domanda}
+
+% \newtheorem{richiamo}[prp]{Richiamo}
+% \newtheorem*{richiamo*}{Richiamo}
+
+% Semi-cailotto
+% \newtheoremstyle{name}
+% {space above}
+% {space below}
+% {body font}
+% {Indent amount}
+% {theorem head font}
+% {Punctuation after head}
+% {space after theorem head}
+% {Theorem head spec}
+
+
+% TikZ
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usetikzlibrary{cd} % tikz-cd
+
+% Macro di TikZ
+% nope
+
+
+% Comandi generali definiti dall'utente
+% Varianti
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\theta}{\vartheta}
+
+\renewcommand{\injlim}{\varinjlim}
+\renewcommand{\projlim}{\varprojlim}
+
+% Altre cose
+\newcommand{\omissis}{[\textellipsis\unkern]}
+
+\newlength{\seplen}
+\setlength{\seplen}{5pt}
+\newlength{\sepwid}
+\setlength{\sepwid}{.4pt}
+\newcommand{\fstblank}{{\,\rule{\seplen}{\sepwid}\,}}
+\newcommand{\sndblank}{{\fstblank\llap{\raisebox{2pt}{\fstblank}}}}
