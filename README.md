@@ -1,1 +1,1 @@
-Trying to try pin down to myself the details the underlies the definition of a category of bordisms that is suitable for stating and proving the folklore equivalence between 2-dimensional topological quantum field theories and Frobenius algebras.
+Trying to try pin down to myself the details that underlies the definition of a category of bordisms suitable for stating and proving the folklore equivalence theorem between 2-dimensional topological quantum field theories and Frobenius algebras.
